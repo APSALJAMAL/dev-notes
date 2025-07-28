@@ -32,4 +32,51 @@ Reserved words (like Java keywords, such as int or boolean) cannot be used as na
 int m = 60;
 ```
 ```java
+int myInt = 9;
+double myDouble = myInt;  // Automatic casting: int to double
 
+double myDouble = 9.78d;
+int myInt = (int) myDouble; // Manual casting: double to int
+```
+```java
+public class StringDemo {
+    public static void main(String[] args) {
+        String name = "Jamal";
+
+        // Length
+        System.out.println("Length: " + name.length());
+
+        // Character at index
+        System.out.println("Character at index 1: " + name.charAt(1));
+
+        // Substring
+        System.out.println("Substring (1 to 3): " + name.substring(1, 3));
+
+        // Uppercase & Lowercase
+        System.out.println("Uppercase: " + name.toUpperCase());
+        System.out.println("Lowercase: " + name.toLowerCase());
+
+        // String comparison
+        String anotherName = "jamal";
+        System.out.println("Equals: " + name.equals(anotherName));
+        System.out.println("Equals Ignore Case: " + name.equalsIgnoreCase(anotherName));
+
+        // Contains
+        System.out.println("Contains 'mal': " + name.contains("mal"));
+
+        // Replace
+        System.out.println("Replace 'J' with 'K': " + name.replace("J", "K"));
+
+        // Concatenation
+        String greeting = "Hello";
+        String fullGreeting = greeting + " " + name;
+        System.out.println("Concatenation: " + fullGreeting);
+
+        // Loop through characters
+        System.out.println("Characters in name:");
+        for (int i = 0; i < name.length(); i++) {
+            System.out.println(name.charAt(i));
+        }
+    }
+}
+```
