@@ -1,3 +1,4 @@
+### java
 ```java
 public class Main {
   public static void main(String[] args) {
@@ -5,22 +6,27 @@ public class Main {
   }
 }
 ```
+### print
 ```java
 System.out.println("Hello World!");
 ```
+### comment
 ```java
 // single line
 
 /* multi line  */
 ```
-type variableName = value;
+### variable
 ```java
+type variableName = value;
+
 int myNum = 5;
 float myFloatNum = 5.99f;
 char myLetter = 'D';
 boolean myBool = true;
 String myText = "Hello";
 ```
+### identifier
 ```java
 Names can contain letters, digits, underscores, and dollar signs
 Names must begin with a letter
@@ -31,6 +37,7 @@ Reserved words (like Java keywords, such as int or boolean) cannot be used as na
 
 int m = 60;
 ```
+### type-casting
 ```java
 int myInt = 9;
 double myDouble = myInt;  // Automatic casting: int to double
@@ -38,7 +45,9 @@ double myDouble = myInt;  // Automatic casting: int to double
 double myDouble = 9.78d;
 int myInt = (int) myDouble; // Manual casting: double to int
 ```
-```javapublic class StringDemo {
+### string
+```java
+public class StringDemo {
     public static void main(String[] args) {
         String name = "Jamal";
 
@@ -81,6 +90,7 @@ int myInt = (int) myDouble; // Manual casting: double to int
 }
 
 ```
+### maths
 ```java
 public class MathDemo {
     public static void main(String[] args) {
@@ -115,12 +125,11 @@ public class MathDemo {
     }
 }
 ```
+### contitional 
 ```java
-public class ControlFlowDemo {
+public class ConditionalDemo {
     public static void main(String[] args) {
         int number = 10;
-
-        // ===== CONDITIONAL STATEMENTS =====
 
         // if
         if (number > 0) {
@@ -142,9 +151,15 @@ public class ControlFlowDemo {
         } else {
             System.out.println("Positive"); // Output: Positive
         }
+    }
+}
 
-        // ===== LOOPS =====
+```
+### loop
+```java
 
+public class LoopDemo {
+    public static void main(String[] args) {
         // for loop
         System.out.println("For loop:");
         for (int i = 1; i <= 3; i++) {
@@ -166,10 +181,15 @@ public class ControlFlowDemo {
             System.out.println("k = " + k); // Output: k = 1, k = 2, k = 3
             k++;
         } while (k <= 3);
-
-        // ===== SWITCH STATEMENT =====
-
+    }
+}
+```
+### switch
+```java
+public class SwitchDemo {
+    public static void main(String[] args) {
         int day = 3;
+
         System.out.print("Day " + day + " is: ");
         switch (day) {
             case 1:
