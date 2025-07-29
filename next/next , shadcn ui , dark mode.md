@@ -3,6 +3,9 @@
 npx create-next-app@latest
 
 ```
+```
+npm run dev
+```
 # shadcn ui set up
 ```txt
 npx shadcn@latest init
@@ -24,6 +27,8 @@ export default function Home() {
 # dark mode
 ```txt
 npm install next-themes
+
+npx shadcn@latest add dropdown-menu   
 ```
 ### theme-provider.tsx
 ```txt
@@ -65,56 +70,86 @@ export default function RootLayout({ children }: RootLayoutProps) {
 ```
 ### ThemeToggle.tsx
 ```txt
-// ThemeToggle.tsx
-"use client"
+// ThemeToggle.tsx"use client"
 
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button
+      onClick={toggleTheme}
+      variant="ghost"
+      size="icon"
+      className="bg-transparent "
+      aria-label="Toggle theme"
+    >
+      <Sun className="h-5 w-5 transition-all dark:rotate-90 dark:scale-0" />
+      <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+    </Button>
   )
 }
+
 ```
 ### Navbar.tsx
 ```txt
 // Navbar.tsx
+import Link from "next/link";
+
+import { HomeIcon,  Sprout } from "lucide-react";
+
+import Image from "next/image";
+import logo from "@/app/favicon.ico";
+import { Button } from "../ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 
-<html lang="en" suppressHydrationWarning>
+async function Navbar() {
 
-<div className="hidden md:flex items-center gap-5">
-  <ThemeToggle />
-</div>
+
+  return (
+    <nav className="sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <Image src={logo} alt="Logo" width={40} height={40} />
+            <span className="text-xl font-bold text-gray-800 dark:text-white">REPULSO</span>
+          </Link>
+
+          {/* Navbar Links */}
+          <div className="flex flex-wrap items-center gap-3">
+            <Button variant="ghost" className="flex items-center gap-2" asChild>
+              <Link href="/plants">
+                <Sprout className="w-4 h-4" />
+                <span className=" sm:inline">Plants</span>
+              </Link>
+            </Button>
+
+            <Button variant="ghost" className="flex items-center gap-2" asChild>
+              <Link href="/">
+                <HomeIcon className="w-4 h-4" />
+                <span className=" sm:inline">Home</span>
+              </Link>
+            </Button>
+
+            <ThemeToggle/>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;
+
 ```
