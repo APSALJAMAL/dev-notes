@@ -28,7 +28,6 @@ export default function Home() {
 ```txt
 npm install next-themes
 
-npx shadcn@latest add dropdown-menu   
 ```
 ### theme-provider.tsx
 ```txt
