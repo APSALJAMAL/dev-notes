@@ -314,3 +314,39 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 
 ```
+### schema.prisma
+```ts
+
+model User {
+  id                         String   @id @default(uuid())
+  email                      String   @unique
+  name                       String?
+  displayName                String?
+  profileImageUrl            String?
+  createdAt                  DateTime?
+  updatedAt                  DateTime?
+  deletedAt                  DateTime?
+  primaryEmail               String?
+  primaryEmailVerified       Boolean  @default(false)
+  lastActiveAtMillis         BigInt?
+  signedUpAtMillis           BigInt?
+  isAnonymous                Boolean  @default(false)
+  hasPassword                Boolean  @default(false)
+  otpAuthEnabled             Boolean  @default(false)
+  passkeyAuthEnabled         Boolean  @default(false)
+  primaryEmailAuthEnabled    Boolean  @default(false)
+  requiresTotpMfa            Boolean  @default(false)
+  authWithEmail              Boolean  @default(false)
+
+  // Optional JSON fields
+  rawJson                    Json?
+  clientMetadata             Json?
+  clientReadOnlyMetadata     Json?
+  serverMetadata             Json?
+  oauthProviders             Json?
+
+  selectedTeam               String?
+  selectedTeamId             String?
+}
+
+```
