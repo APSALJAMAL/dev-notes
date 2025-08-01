@@ -3,6 +3,27 @@
 npm install lucide-react
 npx shadcn@latest add label switch alert-dialog dialog button
 ```
+### schema.prisma
+```ts
+enum Status {
+  ACTIVE
+  INACTIVE
+  PENDING
+}
+
+model Item {
+  id        String   @id @default(cuid())
+  name      String
+  quantity  Int
+  price     Decimal
+  dateAdded DateTime @default(now())
+  inStock   Boolean
+  status    Status
+  userId    String
+
+  @@index([userId])
+}
+```
 
 ### app/api/item/route.ts
 ```ts

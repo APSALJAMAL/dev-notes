@@ -22,3 +22,7 @@ Use %20 for spaces and %2C for commas if needed
 
 - [CRUD](./crud.md)  
   _create read update delete for all datatype._  
+
+- [CRUDS](./cruds.md)  
+  _create read update delete search sort for all datatype._    
+
