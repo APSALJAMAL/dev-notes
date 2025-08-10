@@ -65,6 +65,16 @@ Use `npm install` to install the package.
 
 ### Block Code: ```js
 
+### table
+
+## 📁 Another Section
+```ts
+| File | File | File |
+|------|------|------|
+| Example 1 | Example 2 | Example 3 |
+| Example 4 | Example 5 | Example 6 |
+```
+
 ```js
 echo "# dev-notes" >> README.md
 git init
