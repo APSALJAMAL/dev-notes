@@ -38,6 +38,12 @@ model Plant {  //#1
   updatedAt   DateTime @updatedAt
 }
 ```
+```ts
+npx prisma db push
+```
+```ts
+npx prisma generate
+```
 
 ### app\api\item\route.ts
 ```ts

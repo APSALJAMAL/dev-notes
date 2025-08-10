@@ -52,6 +52,15 @@ export async function getUserId() {
   return userId;
 }
 
+export async function getUserEmail() {
+  const userId = await getUserId();
+  if (!userId) return null;
+
+  const user = await getUserDetails(userId);
+  return user?.email || null;
+}
+
+
 
 //  Get all users from Neon (read-only)
 export async function getAllUserDetails() {
