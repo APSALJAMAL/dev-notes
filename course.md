@@ -1,5 +1,6 @@
 # auto complete
 
+### mark as complete
 ```js
 (function() {
     const accordions = document.querySelectorAll(
@@ -46,6 +47,25 @@
     }
 
     processAccordion();
+})();
+
+```
+### auto play
+```js
+(function () {
+    function completeVideo() {
+        const video = document.querySelector('video');
+
+        if (video) {
+            video.currentTime = video.duration - 2; // jump near end
+            console.log("⏭ Skipped to end of video");
+        } else {
+            console.log("⚠️ No video element found");
+        }
+    }
+
+    // Run every few seconds (in case video loads late)
+    setInterval(completeVideo, 5000);
 })();
 
 ```
