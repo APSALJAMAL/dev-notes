@@ -6,6 +6,13 @@ npx create-next-app@latest
 ```
 npm run dev
 ```
+```
+npm install --legacy-peer-deps
+```
+file structure in tree format
+```
+tree /f
+```
 # shadcn ui set up
 ```txt
 npx shadcn@latest init
